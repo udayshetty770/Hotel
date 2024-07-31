@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Vishwanath Palace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+    background: linear-gradient(145deg, #ff6f61, #de425b);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -3px 8px rgba(0, 0, 0, 0.3), inset 0 3px 8px rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffdd57;
+}
+
+.hero {
+    background: url('WhatsApp Image 2024-07-31 at 09.33.25_5eb7cfd5.jpg') no-repeat center center/cover;
+    color: white;
+    width: 100%; /* Ensure it covers the full width of the container */
+    height: 330px; /* Set a smaller height */
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    position: relative;
+    margin: 20px 0;
+    border: 3px solid #d4af37;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+        section {
+            padding: 40px 20px;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+            color: #de425b;
+        }
+
+        .gallery-images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* Ensures images are in a single row */
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+}
+
+.gallery-images img {
+    width: auto; /* Allow images to keep their aspect ratio */
+    height: 200px; /* Set a fixed height for uniformity */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 10px; /* Add spacing between images */
+}
+
+.gallery-images img:last-child {
+    margin-right: 0; /* Remove margin from the last image */
+}
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: #fff;
+            position: relative;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form textarea, form button {
+            width: 80%;
+            max-width: 500px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #de425b;
+            outline: none;
+        }
+
+        form button {
+            background: #de425b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #ff6f61;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-images img {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-images img {
+                width: 100%;
+            }
+        }
+
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        #lightbox:target {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hotel Vishwanath Palace</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <!-- Removed text content -->
+        </div>
+    </section>
+    
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Welcome to Hotel Vishwanath Palace, a premier dining destination located in the heart of Pune, Wakad. Our restaurant is celebrated for its exceptional blend of gourmet cuisine and elegant ambiance, making it an ideal choice for both casual dining and special occasions. With a menu featuring a diverse array of dishes, top-notch service, and a stylish setting, we ensure that every guest enjoys a memorable dining experience.
+        </p>
+        <p>
+            Situated in the vibrant neighborhood of Wakad, our restaurant is conveniently located near major business hubs, shopping centers, and local attractions. Whether you're here for a business lunch, a family dinner, or a romantic evening out, you'll find everything you need within easy reach.
+        </p>
+        <p>
+            At Hotel Vishwanath Palace, we take pride in our warm hospitality and attention to detail. Our dedicated staff is committed to providing personalized service to cater to your every need. From our exquisite menu options to our inviting atmosphere, we offer a wide range of dining experiences designed to delight your senses.
+        </p>
+        <p>
+            Experience the perfect blend of culinary excellence and sophisticated charm at Hotel Vishwanath Palace, where your dining pleasure is our top priority. We look forward to welcoming you and ensuring you have an unforgettable dining experience in Pune.
+        </p>
+    </section>
+    
+    
+    <section id="amenities">
+        <h2>Amenities</h2>
+        <ul>
+            <li>Gourmet Dining Experience</li>
+            <li>Outdoor Seating Area</li>
+            <li>Private Dining Rooms</li>
+            <li>Takeaway and Delivery Services</li>
+            <li>Live Music Events</li>
+            <li>Specialty Desserts and Pastries</li>
+            <li>Exclusive Chef's Menu</li>
+            <li>Custom Catering Services</li>
+        </ul>
+       
+    </section>
+    
+
+
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+            <a href="Screenshot 2024-07-31 103318.png"><img src="Screenshot 2024-07-31 103318.png" alt="Hotel Image 1"></a>
+            <a href="Screenshot 2024-07-31 103113.png"><img src="Screenshot 2024-07-31 103113.png" alt="Hotel Image 2"></a>
+            <a href="Screenshot 2024-07-31 103440.png"><img src="Screenshot 2024-07-31 103440.png" alt="Hotel Image 3"></a>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <img id="Screenshot 2024-07-31 103318.png" src="Screenshot 2024-07-31 103318.png" alt="Hotel Image 1">
+        <img id="Screenshot 2024-07-31 103113.png" src="Screenshot 2024-07-31 103113.png" alt="Hotel Image 2">
+        <img id="Screenshot 2024-07-31 103440.png" src="Screenshot 2024-07-31 103440.png" alt="Hotel Image 3">
+    </div>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: 8855852024</p>
+        <p>Email: hotelvishwanathpalace@gmail.com</p>
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Hotel Vishwanath Palace. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset(); // Reset the form fields
+        });
+
+        document.querySelectorAll('.gallery-images img').forEach(img => {
+            img.addEventListener('click', function() {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImage = lightbox.querySelector('img');
+                lightboxImage.src = this.src;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        document.getElementById('lightbox').addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+``
